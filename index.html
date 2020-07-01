@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>身障鑑定醫院</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
+<link rel="stylesheet" href="https://leaflet-search.readthedocs.io/en/latest/src/leaflet-search.css" />
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+<script src="https://leaflet-search.readthedocs.io/en/latest/src/leaflet-search.js"></script>
+
+
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+			width: 100vw;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+<div id='map'></div>
+
+<script type="text/javascript" src="script.js"></script>
+
+<script type="text/javascript">
+
+	var map = L.map('map',{
+    crs: L.CRS.EPSG4326
+}).setView([23, 121], 6);
+ L.tileLayer.wms('http://wms.nlsc.gov.tw/wms', {
+    layers: 'EMAP16',
+	attribution: 'TGOS &copy; <a href="http://wms.nlsc.gov.tw/wms">內政部</a>, ｜' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ｜' + 
+			'<a href="https://nhplatform.mohw.gov.tw/dl-1291-5b597ef8fa98446ea0d4b543aec6bfea.html">資料下載</a>',
+    format: 'image/png',
+    transparent: true,
+    continuousWorld : true,
+    uppercase: true
+}).addTo(map);
+
+function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.機構名稱) {
+        layer.bindPopup("<b><a href=\"https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?Page=3&HospID="+feature.properties.機構代碼+" \"target=\"_blank\"></b>" + 
+		feature.properties.機構名稱 + "</a>" + "<br>"
+         + feature.properties.機構類型  + "<br>"
+         + feature.properties.機構代碼  + "<br>"
+         +"<a href=\"https://www.google.com/maps/dir//"+feature.properties.WGS84緯度+" ,"+feature.properties.WGS84經度+ 
+		 "/@"+feature.properties.WGS84緯度+","+feature.properties.WGS84經度+  ",10z\" target=\"_blank\">"+ feature.properties.地址  + "</a><br>"
+         + "<a href=\"tel:+886"+feature.properties.電話+"\">" + feature.properties.電話 + "</a>" );
+    }
+}
+
+
+
+  var alltypes = L.layerGroup();
+  var geojson = L.geoJson(nursingData,{onEachFeature: onEachFeature}).addTo(alltypes).addTo(map);
+
+//... adding data in alltypes ...
+	var controlSearch = new L.Control.Search({layer: alltypes, initial: false, position:'topright'});
+
+	map.addControl( controlSearch );
+	//searchLayer is a L.LayerGroup contains searched markers
+
+	L.control.layers( controlSearch).addTo(map);
+
+</script>
+
+
+
+</body>
+</html>
