@@ -184,6 +184,7 @@ function onEachFeature(feature, layer) {
         layer.bindPopup("<b><a href=\"https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?Page=3&HospID="+feature.properties.醫事機構代碼+" \"target=\"_blank\"></b>" + 
 		feature.properties.醫事機構名稱 + "</a>" + "<br>"
          + feature.properties.醫事機構代碼  + "<br>"
+         + feature.properties.鑑定項目  + "<br>"
          +"<a href=\"https://www.google.com/maps/dir//"+feature.properties.緯度+" ,"+feature.properties.經度+ 
 		 "/@"+feature.properties.緯度+","+feature.properties.經度+  ",10z\" target=\"_blank\">"+ feature.properties.機構地址  + "</a><br>"
          + "<a href=\"tel:+886"+feature.properties.電話號碼+"\">" + feature.properties.電話號碼 + "</a>" );
