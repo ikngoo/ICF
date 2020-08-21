@@ -84,7 +84,7 @@ markers.addLayer(alltypes).addTo(map);
 
 //... adding data in alltypes ...
 	var controlSearch = new L.Control.Search({layer: alltypes,propertyName: '醫事機構名稱',buildTip: function(text, val) {
-			var type = val.layer.feature.properties.縣市別;
+			var type = val.layer.feature.properties.鑑定項目摘要;
 			return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';
 		},zoom: 17, initial: false, position:'topleft',textPlaceholder: '搜尋名稱'
    });
