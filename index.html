@@ -199,7 +199,7 @@ function onEachFeature(feature, layer) {
     if (feature.properties && feature.properties.醫事機構名稱) {
         layer.bindPopup("<b><a href=\"https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?Page=3&HospID="+feature.properties.醫事機構代碼+" \"target=\"_blank\"></b>" + 
 		feature.properties.醫事機構名稱 + "</a>" + "<br>"
-         + '<b class="'+feature.properties.第1類+'">'+第1類 + "</b>、"+ '<b class="'+feature.properties.第2類+'">'+第2類 + "</b>、"+ '<b class="'+feature.properties.第3類+'">'+第3類 + "</b>、"+'<b class="'+feature.properties.第4類+'">'+第4類 + "</b>、"+'<b class="'+feature.properties.第5類+'">'+第5類 + "</b>、"+'<b class="'+feature.properties.第6類+'">'+第6類 + "</b>、"+'<b class="'+feature.properties.第7類+'">'+第7類 + "</b>、"+'<b class="'+feature.properties.第8類+'">'+第8類 + "</b>、" +'<b class="'+feature.properties.其他類+'">'+其他類 +  "</b><br>"
+         + '<b class="'+feature.properties.第1類+'">'+"第1類" + "</b>、"+ '<b class="'+feature.properties.第2類+'">'+"第2類" + "</b>、"+ '<b class="'+feature.properties.第3類+'">'+"第3類" + "</b>、"+'<b class="'+feature.properties.第4類+'">'+"第4類" + "</b>、"+'<b class="'+feature.properties.第5類+'">'+"第5類" + "</b>、"+'<b class="'+feature.properties.第6類+'">'+"第6類" + "</b>、"+'<b class="'+feature.properties.第7類+'">'+"第7類" + "</b>、"+'<b class="'+feature.properties.第8類+'">'+"第8類" + "</b>、" +'<b class="'+feature.properties.其他類+'">'+"其他類" +  "</b><br>"
          +"<a href=\"https://www.google.com/maps/dir//"+feature.properties.緯度+" ,"+feature.properties.經度+ 
 		 "/@"+feature.properties.緯度+","+feature.properties.經度+  ",10z\" target=\"_blank\">"+ feature.properties.機構地址  + "</a><br>"
          + "<a href=\"tel:+886"+feature.properties.電話號碼+"\">" + feature.properties.電話號碼 + "</a>" );
