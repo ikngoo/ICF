@@ -224,13 +224,13 @@ markers.addLayer(alltypes).addTo(map);
 	var controlSearch = new L.Control.Search({layer: alltypes,propertyName: '醫事機構名稱',buildTip: function(text, val) {
 			var type = val.layer.feature.properties.第1類;
     	var type2 = val.layer.feature.properties.第2類;
-    	var type3 = val.layer.feature.properties.第2類;
-    	var type4 = val.layer.feature.properties.第2類;
-    	var type5 = val.layer.feature.properties.第2類;
-    	var type6 = val.layer.feature.properties.第2類;
-    	var type7 = val.layer.feature.properties.第2類;
-    	var type8 = val.layer.feature.properties.第2類;
-    	var type9 = val.layer.feature.properties.第2類;
+    	var type3 = val.layer.feature.properties.第3類;
+    	var type4 = val.layer.feature.properties.第4類;
+    	var type5 = val.layer.feature.properties.第5類;
+    	var type6 = val.layer.feature.properties.第6類;
+    	var type7 = val.layer.feature.properties.第7類;
+    	var type8 = val.layer.feature.properties.第8類;
+    	var type9 = val.layer.feature.properties.其他類;
 			return '<a href="#">'+text+'</br>'+'<b class="'+type+'">'+"第1類"+'</b>'+'<b class="'+type2+'">'+"第2類"+'</b>'+'<b class="'+type3+'">'+"第3類"+'</b>'+'<b class="'+type4+'">'+"第4類"+'</b>'+'</br>'+'<b class="'+type5+'">'+"第5類"+'</b>'+'<b class="'+type6+'">'+"第6類"+'</b>'+'<b class="'+type7+'">'+"第7類"+'</b>'+'<b class="'+type8+'">'+"第8類"+'</b>'+'<b class="'+type9+'">'+"其他類"+'</b></a>';
 		},zoom: 17, initial: false, position:'topleft',textPlaceholder: '搜尋名稱'
    });
